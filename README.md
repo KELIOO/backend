@@ -3,7 +3,7 @@
 > 基于Vue.js和ElementUI的后端管理系统
 
 ## demo
-[http://cms.edaoe.com](http://cms.edaoe.com/)
+[http://cms.edaoe.com](http://cms.edaoe.com/) （没有账号、密码，可以直接登录）
 
 ![](./demo1.png)
 
