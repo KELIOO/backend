@@ -4,7 +4,7 @@
 /**
  * Dots
  */
-var Dots = function () {
+let Dots = function () {
   // 画布相关
   this.canvas;
   this.ctx;
@@ -67,7 +67,7 @@ Dots.prototype = {
  */
 export default function doCanvas() {
 
-  var dotsArr = [],
+  let dotsArr = [],
     dotsNum = 0,
     maxDotsNum = 0,
     overNum = 0, // 超出最大数量的点的数量
@@ -81,7 +81,6 @@ export default function doCanvas() {
     height = parseInt(document.documentElement.clientHeight),
     area = width * height, // canvas区域面积
     cssText = 'width: ' + width + 'px; height: ' + height + 'px;';
-    console.log(document.documentElement.clientWidth,document.documentElement.clientHeight)
   // 设置背景和canvas的宽高
   //bg.setAttribute('style', cssText);
   canvas.setAttribute('style', cssText);
@@ -93,14 +92,14 @@ export default function doCanvas() {
   maxDotsNum = dotsNum * 2;
 
   //生成点
-  for (var i = 0; i < dotsNum; i++) {
-    var dot = new Dots();
+  for (let i = 0; i < dotsNum; i++) {
+    let dot = new Dots();
     dotsArr.push(dot);
     dot.init(canvas);
   }
 
   //动画与连线
-  var requestAnimFrame = requestAnimationFrame || webkitRequestAnimationFrame || oRequestAnimationFrame || msRequestAnimationFrame;
+  let requestAnimFrame = requestAnimationFrame || webkitRequestAnimationFrame || oRequestAnimationFrame || msRequestAnimationFrame;
   requestAnimFrame(animateUpdate); // 兼容不同浏览器的requestAnimationFrame
 
   function animateUpdate() {
@@ -111,14 +110,14 @@ export default function doCanvas() {
       overNum = dotsNum - maxDotsNum;
     }
 
-    for (var i = overNum; i < dotsNum; i++) {
+    for (let i = overNum; i < dotsNum; i++) {
       dotsArr[i].update();
     }
 
     // 绘制连线
-    for (var i = overNum; i < dotsNum; i++) {
-      for (var j = i + 1; j < dotsNum; j++) {
-        var tx = dotsArr[i].x - dotsArr[j].x,
+    for (let i = overNum; i < dotsNum; i++) {
+      for (let j = i + 1; j < dotsNum; j++) {
+        let tx = dotsArr[i].x - dotsArr[j].x,
           ty = dotsArr[i].y - dotsArr[j].y,
           s = Math.sqrt(Math.pow(tx, 2) + Math.pow(ty, 2));
         if (s < dotsDistance) {

@@ -1,5 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+require('../config')
 import Vue from 'vue'
 import App from './App'
 import router from './router'
@@ -10,33 +11,34 @@ import {Message} from 'element-ui'
 import Qs from 'qs'
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon'
-require('../config')
+import util from './assets/js/util'
 
 Vue.use(ElementUI)
 Vue.component('icon', Icon)
 Vue.config.productionTip = false
 
-serverUrl = process.env.NODE_ENV === 'production' ? 'http://dev.edaoe.com' : 'http://localhost'
+util.authcode=util.getSession('authcode')?util.getSession('authcode'):util.getCookie('authcode')
+util.serverUrl = process.env.NODE_ENV === 'production' ? 'http://dev.edaoe.com' : 'http://localhost'
 
-api = axios.create({
-  baseURL: serverUrl,
+util.api = axios.create({
+  baseURL: util.serverUrl,
   headers: {'Content-Type': 'application/x-www-form-urlencoded'},
   transformRequest: [function (data) {
     if (!data)
       data = {}
     if (!data.hasOwnProperty("username"))
-      data.authcode = authcode
+      data.authcode = util.authcode
     data = Qs.stringify(data, {arrayFormat: 'brackets'})
     return data
   }]
 })
 
-api.interceptors.response.use(response => {
+util.api.interceptors.response.use(response => {
   let data = response.data
   if (!data.isOk) {
     if (data.errno === -2) {
       Message.error('用户信息已过期，请重新登录！')
-      authcode = null
+      util.authcode = null
       vue.$router.push('/login')
     }
   }
@@ -48,19 +50,19 @@ api.interceptors.response.use(response => {
 
 router.beforeEach((to, from, next) => {
   if (to.path === '/login') {
-    if (authcode)
+    if (util.authcode)
       next('/layout/index')
     else
       next()
   } else {
-    if (authcode)
+    if (util.authcode)
       next()
     else
       next('/login')
   }
 })
 
-vue=new Vue({
+util.vue=new Vue({
   el: '#app',
   router,
   template: '<App/>',

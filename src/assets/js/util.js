@@ -2,6 +2,10 @@
  * Created by Dull on 2017/5/3 0003.
  */
 export default{
+  serverUrl: '',
+  api: {},
+  authcode:'',
+  vue: {},
   setSession(key, value){
     sessionStorage.setItem(key, JSON.stringify(value))
   },
@@ -21,17 +25,6 @@ export default{
     exp.setTime(exp.getTime() + strsec * 1);
     document.cookie = key + "=" + encodeURI(value) + ";expires=" + exp.toGMTString() + ";path=/";
   },
-  //对时间的解析处理
-  getsec(str) {
-    let str1 = str.substring(1, str.length) * 1;
-    let str2 = str.substring(0, 1);
-    if (str2 === "s")
-      return str1 * 1000;
-    else if (str2 === "h")
-      return str1 * 60 * 60 * 1000;
-    else if (str2 === "d")
-      return str1 * 24 * 60 * 60 * 1000;
-  },
   //读取cookies
   getCookie(key) {
     let arr, reg = new RegExp("(^| )" + key + "=([^;]*)(;|$)");
@@ -47,6 +40,17 @@ export default{
     let cval = getCookie(key);
     if (cval)
       document.cookie = key + "=" + cval + ";expires=" + exp.toGMTString() + ";path=/";
+  },
+  //对时间的解析处理
+  getsec(str) {
+    let str1 = str.substring(1, str.length) * 1;
+    let str2 = str.substring(0, 1);
+    if (str2 === "s")
+      return str1 * 1000;
+    else if (str2 === "h")
+      return str1 * 60 * 60 * 1000;
+    else if (str2 === "d")
+      return str1 * 24 * 60 * 60 * 1000;
   }
 
 }

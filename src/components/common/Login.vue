@@ -106,10 +106,10 @@
     methods: {
       loginSubmit(){
         this.loading = true
-//        api.post()
+//        util.api.post()
         setTimeout(()=>{
-          authcode='123456'
-          util.setSession('authcode',authcode)
+          util.authcode='123456'
+          util.setSession('authcode',util.authcode)
           this.$router.push('/layout/index')
           this.loading = true
         },1500)

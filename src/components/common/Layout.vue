@@ -137,7 +137,7 @@
     methods: {
       handleCommand(command) {
         if (command === 'exit') {
-          authcode = null
+          util.authcode = null
           util.removeSession('authcode')
           this.$router.push('/login')
         }
