@@ -4,7 +4,7 @@
 /**
  * Dots
  */
-let Dots = function () {
+var Dots = function () {
   // 画布相关
   this.canvas;
   this.ctx;
