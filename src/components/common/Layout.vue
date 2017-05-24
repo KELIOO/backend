@@ -60,12 +60,18 @@
             padding 10px 15px 0
           .main
             margin 15px
-            padding 10px
+            padding 0 10px 15px 10px
             max-height calc(100% - 75px)
             min-height 200px
             background #fff
             overflow auto
             box-shadow 0 2px 2px 0 rgba(7, 17, 27, .1)
+            .header
+              height 60px
+              line-height 60px
+            .page
+              margin-top 10px
+              text-align right
         .layout-copy
           position absolute
           top calc(100% - 27px)
