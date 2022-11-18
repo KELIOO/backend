@@ -5,10 +5,11 @@
 <template>
   <div class="user">
     <el-breadcrumb>
-      <el-breadcrumb-item :to="'/'">首页</el-breadcrumb-item>
+      <el-breadcrumb-item :to="'/layout/index'">首页</el-breadcrumb-item>
       <el-breadcrumb-item>用户</el-breadcrumb-item>
-      <el-breadcrumb-item>用户管理</el-breadcrumb-item>
+      <el-breadcrumb-item>角色管理</el-breadcrumb-item>
     </el-breadcrumb>
+
     <div class="main">
       <el-select v-model="value2" placeholder="请选择">
         <el-option
