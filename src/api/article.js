@@ -90,3 +90,12 @@ export function getAuthorId(articleId) {
     method: 'post'
   })
 }
+
+//前端后台
+export function getAllArticles() {
+  return request({
+    url: '/api/articles/getAllArticle',
+    method: 'get'
+  })
+}
+

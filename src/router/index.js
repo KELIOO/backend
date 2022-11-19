@@ -4,7 +4,7 @@ import Login from 'common/Login'
 import Layout from 'common/Layout'
 import Index from 'page/Index'
 import User from 'page/User'
-import Role from 'page/Role'
+import Blog from 'page/Blog'
 import {Message} from 'element-ui';
 import store from '@/store'
 import {getToken} from '@/request/token'
@@ -33,17 +33,13 @@ const router = new Router({
           component: Index
         },
         {
-          path: 'addUser',
-          component: addUser
-        },
-        {
           path: 'user',
           component: User
         },
 
         {
-          path: 'role',
-          component: Role
+          path: 'blog',
+          component: Blog
         }
     ]}
   ]

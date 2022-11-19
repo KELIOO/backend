@@ -35,14 +35,16 @@ export function getUserInfo(token) {
   })
 }
 
-export function register(account, nickname, password) {
+export function register(userForm) {
   const data = {
-    account,
-    nickname,
-    password
+    account: userForm.account,
+    password: userForm.password,
+    nickname: userForm.nickname,
+    email: userForm.email,
+    mobilePhoneNumber: userForm.mobilePhoneNumber,
   }
   return request({
-    url: '/register',
+    url: '/api/register',
     method: 'post',
     data
   })

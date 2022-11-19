@@ -9,8 +9,7 @@
             <icon name="user"></icon>用户
           </template>
           <el-menu-item index="/layout/user">用户管理</el-menu-item>
-          <el-menu-item index="/layout/addUser">用户添加</el-menu-item>
-          <el-menu-item index="/layout/role">角色管理</el-menu-item>
+          <el-menu-item index="/layout/Blog">博客管理</el-menu-item>
 <!--          <el-menu-item index="/layout/permission">权限管理</el-menu-item>-->
         </el-submenu>
 <!--        <el-menu-item index="3"><i class="el-icon-setting"></i><span class="layout-text">导航三</span></el-menu-item>

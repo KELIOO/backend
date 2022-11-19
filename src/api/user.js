@@ -1,8 +1,8 @@
 import request from '@/request'
 
-export function getAllUsers() {
+export function getAllUsers(id) {
   return request({
-    url: '/api/users/getAllUsers',
+    url: `/api/users/getAllUsers/${id}`,
     method: 'get'
   })
 }
@@ -10,7 +10,7 @@ export function updateUser(form){
   return request({
     url: '/api/info',
     method: 'post',
-    data: form
+    data:form
   })
 }
 
